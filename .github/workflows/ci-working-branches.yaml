@@ -56,9 +56,9 @@ jobs:
             git config --global url."https://${{ secrets.ACCESS_TOKEN }}:@github.com/".insteadOf "https://github.com"
             go clean --testcache
             echo "Run on Example"
-            go test -v -race -coverprofile example/tmp/coverage.out -json example/*.go >> example/tmp/report.json
+            go test -v -race -coverprofile ./example/tmp/coverage.out -json ./example/*.go >> ./example/tmp/report.json
             echo "Run on SDK"
-            go test -v -race -coverprofile sdk/tmp/coverage.out -json sdk/*.go >> sdk/tmp/report.json
+            go test -v -race -coverprofile ./sdk/tmp/coverage.out -json ./sdk/*.go >> ./sdk/tmp/report.json
       
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
