@@ -14,4 +14,6 @@ func main() {
 	defer resp.Body.Close()
 
 	log.Println(resp.Status)
+
+	fmt.Println("Hello World")
 }
