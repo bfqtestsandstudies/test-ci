@@ -2,10 +2,10 @@ name: Working Branches
 
 on:
   pull_request:
-    branches: [ feature/*, release/*, hotfix/* , bugfix/* ]
+    branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
       
 jobs:
-  ci:
+  ci-test:
     runs-on: self-hosted
     steps:
       - name: Checkout Source
@@ -40,7 +40,7 @@ jobs:
           args: ./...
 
   sonarcloud:
-    needs: ci
+    needs: ci-test
     runs-on: self-hosted
 
     steps:
