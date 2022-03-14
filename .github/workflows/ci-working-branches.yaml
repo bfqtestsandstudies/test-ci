@@ -6,7 +6,7 @@ on:
       
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
@@ -41,7 +41,7 @@ jobs:
 
   sonarcloud:
     needs: ci
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v2
