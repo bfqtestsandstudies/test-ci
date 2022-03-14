@@ -1,6 +1,7 @@
 name: Working Branches
 
 on:
+  push:
   pull_request:
     types: [ opened, reopened, synchronize, edited ]
     branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
@@ -23,7 +24,7 @@ jobs:
             regex_pattern="^(feature[-/]|release[-/]|hotfix[-/]|bugfix[-/]|develop|main)"
             if [[ "${{ env.BRANCH_NAME }}" =~ $regex_pattern ]]; then 
             echo "The active branch ${{ env.BRANCH_NAME }} is a valid branch." 
-            else 
+            else
             echo "The branch ${{ env.BRANCH_NAME }} is invalid. The pattern expected is feature/*, release/*, hotfix/*, bugfix/*, develop or main "; exit 1 
             fi
   
