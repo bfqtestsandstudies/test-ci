@@ -2,7 +2,7 @@ name: Working Branches
 
 on:
   pull_request:
-    types: [ opened, synchronize ]
+    types: [ opened, reopened, synchronize, edited ]
     branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
       
 jobs:
