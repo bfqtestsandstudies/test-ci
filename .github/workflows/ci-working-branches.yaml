@@ -1,6 +1,8 @@
 name: Working Branches
 
 on:
+  push:
+    branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
   pull_request:
     branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
       
@@ -23,7 +25,7 @@ jobs:
             if [[ "${{ env.BRANCH_NAME }}" =~ $regex_pattern ]]; then 
             echo "The active branch ${{ env.BRANCH_NAME }} is a valid branch." 
             else 
-            echo "The branch ${{ env.BRANCH_NAME }} is invalid. The pattern expected is feature/*, release/*, hotfix/* , bugfix/*, develop or main "; exit 1 
+            echo "The branch ${{ env.BRANCH_NAME }} is invalid. The pattern expected is feature/*, release/*, hotfix/*, bugfix/*, develop or main "; exit 1 
             fi
   
       - name: Set up Go
