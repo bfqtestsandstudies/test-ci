@@ -1,9 +1,8 @@
 name: Working Branches
 
 on:
-  push:
-    branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
   pull_request:
+    types: [ opened, synchronize ]
     branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
       
 jobs:
