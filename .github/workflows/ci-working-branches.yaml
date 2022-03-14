@@ -35,11 +35,6 @@ jobs:
       - name: Test
         run: go test -v ./...
 
-      #- name: Run Gosec Security Scanner
-        #uses: securego/gosec@master
-        #with:
-          #args: ./...
-
   sonarcloud:
     needs: ci-test
     runs-on: self-hosted
