@@ -1,7 +1,14 @@
 package sdk
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestMain(t *testing.T) {
-	t.Log("TestSDK")
+func TestSDK(t *testing.T) {
+	expect := "SDK"
+	result := getSDK()
+
+	if result != expect {
+		t.Errorf("Expected: %s, got: %s", expect, result)
+	}
 }

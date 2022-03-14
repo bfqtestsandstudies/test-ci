@@ -2,6 +2,11 @@ package example
 
 import "testing"
 
-func TestMain(t *testing.T) {
-	t.Log("TestExample")
+func TestExample(t *testing.T) {
+	expect := "Example"
+	result := getExample()
+
+	if result != expect {
+		t.Errorf("Expected: %s, got: %s", expect, result)
+	}
 }
