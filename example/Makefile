@@ -12,6 +12,4 @@ report:
 	go clean --testcache
 	go test -v -coverprofile tmp/coverage.out -json ./... >> tmp/report.json
 
-coverage: report
-	@echo "generate coverage html"
-	go tool cover -html=tmp/coverage.out
+all: test lint report

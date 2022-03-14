@@ -1,7 +1,7 @@
-package main
+package example
 
 import "testing"
 
 func TestMain(t *testing.T) {
-	t.Log("TestSDK2")
+	t.Log("TestExample")
 }

@@ -2,6 +2,7 @@ name: Working Branches
 
 on:
   pull_request:
+    types: [ opened, synchronize ]
     branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
       
 jobs:
@@ -23,7 +24,7 @@ jobs:
             if [[ "${{ env.BRANCH_NAME }}" =~ $regex_pattern ]]; then 
             echo "The active branch ${{ env.BRANCH_NAME }} is a valid branch." 
             else 
-            echo "The branch ${{ env.BRANCH_NAME }} is invalid. The pattern expected is feature/*, release/*, hotfix/* , bugfix/*, develop or main "; exit 1 
+            echo "The branch ${{ env.BRANCH_NAME }} is invalid. The pattern expected is feature/*, release/*, hotfix/*, bugfix/*, develop or main "; exit 1 
             fi
   
       - name: Set up Go
@@ -34,10 +35,10 @@ jobs:
       - name: Test
         run: go test -v ./...
 
-      - name: Run Gosec Security Scanner
-        uses: securego/gosec@master
-        with:
-          args: ./...
+      #- name: Run Gosec Security Scanner
+        #uses: securego/gosec@master
+        #with:
+          #args: ./...
 
   sonarcloud:
     needs: ci-test
@@ -58,6 +59,7 @@ jobs:
             git config --global url."https://${{ secrets.ACCESS_TOKEN }}:@github.com/".insteadOf "https://github.com"
             go clean --testcache
             go test -v -race -coverprofile tmp/coverage.out -json ./... >> tmp/report.json
+      
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

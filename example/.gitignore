@@ -2,5 +2,3 @@ tmp/*
 !tmp/.gitkeep
 
 .env
-
-.vscode/
