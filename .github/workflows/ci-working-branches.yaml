@@ -3,7 +3,7 @@ name: Working Branches
 on:
   pull_request:
     types: [ opened, reopened, edited, synchronize ]
-    branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
+    branches: [ feature/*, release/*, hotfix/*, bugfix/*, develop ]
       
 jobs:
   ci-test:
