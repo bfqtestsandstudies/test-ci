@@ -1,10 +1,9 @@
 name: Working Branches
 
 on:
-  push:
   pull_request:
     types: [ opened, reopened, edited, synchronize ]
-    branches: [ feature/*, release/*, hotfix/*, bugfix/* ]
+    branches: [ develop ]
       
 jobs:
   ci-test:
